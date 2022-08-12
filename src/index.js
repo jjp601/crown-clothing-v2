@@ -5,6 +5,7 @@ import App from './App';
 
 import { UserProvider } from './context/User.context';
 import { ProductsProvider } from './context/Products.context';
+import { CartProvider } from './context/Cart.context';
 
 import './index.scss';
 
@@ -14,7 +15,9 @@ root.render(
     <BrowserRouter>
       <UserProvider>
         <ProductsProvider>
-          <App />
+          <CartProvider>
+            <App />
+          </CartProvider>
         </ProductsProvider>
       </UserProvider>
     </BrowserRouter>
