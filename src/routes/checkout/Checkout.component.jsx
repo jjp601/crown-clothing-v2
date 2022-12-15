@@ -5,31 +5,31 @@ import { selectCartItems, selectCartTotal } from '../../store/cart/cart.selector
 import CheckoutItem from '../../components/CheckoutItem/CheckoutItem.component';
 import PaymentForm from '../../components/PaymentForm/PaymentForm.component';
 
-import './Checkout.styles.scss';
+import { CheckoutContainer, CheckoutHeader, HeaderBlock, Total } from './Checkout.styles';
 
 const Checkout = () => {
     const cartItems = useSelector(selectCartItems);
     const cartTotal = useSelector(selectCartTotal);
 
     return (
-        <div className='checkout-container'>
-            <div className='checkout-header'>
-                <div className="header-block">
+        <CheckoutContainer>
+            <CheckoutHeader>
+                <HeaderBlock>
                     <span>Product</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Description</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Quantity</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Price</span>
-                </div>
-                <div className="header-block">
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Remove</span>
-                </div>
-            </div>
+                </HeaderBlock>
+            </CheckoutHeader>
             
             {
                 cartItems.map((cartItem) => {
@@ -38,9 +38,9 @@ const Checkout = () => {
                     )
                 })
             }
-            <span className='total'>Total: ${cartTotal}</span>
+            <Total>Total: ${cartTotal}</Total>
             <PaymentForm />
-        </div>
+        </CheckoutContainer>
     );
 };
 
